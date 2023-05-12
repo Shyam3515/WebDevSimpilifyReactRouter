@@ -1,0 +1,41 @@
+Approaches:
+1)Imperative Approach : Giving the instructions how it want for you to be, like JavaScript.
+2)Declarative Approach : I want this specific thing give it to me.
+
+## This folder is for React routers
+npm i react-router-dom,
+
+1)First we need to go to index.js, and you need to wrap your entire application inside the router of your choice.Since, we are in browser we are going to use browser router. This browser router is a 
+'react context'.
+
+In App.js we are going to use routes components which directly comes from react-router-dom.
+And inside of this routes component we need to use another component  called route, to define all of our routes.
+=> We have this routes component with s at the end that wraps all of our individual route components,
+which define a path to different page in our website.
+
+=> To change pages we are going to add some navigation, to do that with react router you need to use
+Link components.
+
+Types:
+   2) HashRouter is another type of router, which is similar to browser router, but instead of storing url as a normal url, it stores it inside the hashed portion of url.This is useful when you are working on a shared server, you can't actually change the url of your website.[99% we won't use it.prefer browser].
+
+   3) History router, and the way it works is it allows you to actually take control completely of  the history element in react router.
+    It just determines how your entire browser renders out the history of all the pages you have been so far.Example when you click forward and backward buttons on your page it navigates front and back.[99% we won't use it.prefer browser].
+
+   4) Memory Router is different than others and that actually stores everything related to where you have been in history inside of memory, and it doesn't rely on the url of browser.
+   It never changes the url when you click ont these pages, the reason is it's just stored inside of the memory of a webpage.
+   But it is useful when you need to run test on your code.
+
+   5)Static Router this router specifically working on the servers, it doesn't actually allows you to change pages.It specifies a single url and you do that by specifying a location.This is useful when you are doing server side rendering.[<StaticRouter location={"/"}>].
+
+   6)If you use react native, then you can have Native Router.
+
+//Routes
+<Route path='/books' element={<BookList/>}/>
+{/* /books/:id, this is a custom dynamic route */}
+<Route path='/books/:id' element={<Book/>}/>
+
+{/* If you have two routes that technically match both the url you passed,example you have
+   dynamic and hardcoded url, then react picks the hardcoded,because that one is more specific */}
+<Route path='/books/new' element={<NewBook/>}/> {/*hard coded URL */}
+      
